@@ -2,7 +2,7 @@ class Server:
     def __init__(self, model, co2prod, co2use, disk, ram, cores):
         self.model = model
         self.co2prod = int(co2prod)
-        self.co2se = int(co2use)
+        self.co2use = int(co2use)
         self.disk = int(disk)
         self.ram = int(ram)
         self.cores = int(cores)

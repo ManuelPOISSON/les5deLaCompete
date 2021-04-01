@@ -16,8 +16,19 @@ class Problem:
             for line in lines:
                 line = line.split(",")
                 self.services.append(Service(line[0], int(line[1]), int(line[2]), int(line[3])))
+        self.servers_used = []
 
-        self.serverUsed = []
+
+    def solve(self):
+        pass
+
+    def compute_score(self):
+        score = 0
+        for serv in self.servers_used:
+            score += serv.co2prod + self.duree * serv.co2use
+            # print(score)
+        return score
+
 
 
 

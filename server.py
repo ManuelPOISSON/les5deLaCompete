@@ -8,6 +8,7 @@ class Server:
         self.disk = int(disk)
         self.ram = int(ram)
         self.cores = int(cores)
+        self.services_running = []
 
     def __str__(self) -> str:
         return super().__str__()
@@ -31,11 +32,16 @@ class Server:
         :param service:
         :return: false if service can't be added
         """
-        if not self.ram >= service.ram and self.disk >= service.stockage and self.cores >= service.proc:
-            return false
-        else:
+
+        if self.ram >= service.ram and self.disk >= service.stockage and self.cores >= service.proc:
             self.ram -= service.ram
             self.disk -= service.stockage
             self.cores -= service.proc
+            self.services_running.append(service.name)
+            return True
+
+        else:
+            return False
+
 
 

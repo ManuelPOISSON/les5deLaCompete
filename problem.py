@@ -20,13 +20,17 @@ class Problem:
         self.sort_servers()
 
     def solve(self):
-        self.servers_used.append(self.servers[0])
-        used = self.servers
 
         for service in self.services:
-            if
-
-
+            print(f"service {service.name}")
+            for server in self.servers:
+                print(f"server {server.model}")
+                print(server.ram)
+                if server.add_service(service):
+                    print("after add", server.ram)
+                    if server not in self.servers_used:
+                        self.servers_used.append(server)
+                    break
 
     def sort_servers(self):
         self.servers.sort(key=lambda serv: serv.co2prod + self.duree * serv.co2use)
@@ -37,6 +41,15 @@ class Problem:
             score += serv.co2prod + self.duree * serv.co2use
             # print(score)
         return score
+
+    def __str__(self):
+        ret = ''
+        for server in self.servers_used:
+            ret += server.model + ","
+            for service_name in server.services_running:
+                ret += service_name + ","
+            ret += "\n"
+        return ret
 
 
 

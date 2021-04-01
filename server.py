@@ -1,11 +1,11 @@
 class Server:
     def __init__(self, model, co2prod, co2use, disk, ram, cores):
         self.model = model
-        self.co2prod = co2prod
-        self.co2se = co2use
-        self.disk = disk
-        self.ram = ram
-        self.cores = cores
+        self.co2prod = int(co2prod)
+        self.co2se = int(co2use)
+        self.disk = int(disk)
+        self.ram = int(ram)
+        self.cores = int(cores)
 
     def __str__(self) -> str:
         return super().__str__()

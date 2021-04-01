@@ -17,5 +17,9 @@ class Problem:
                 line = line.split(",")
                 self.services.append(Service(line[0], int(line[1]), int(line[2]), int(line[3])))
 
+        self.serverUsed = []
+
+
+
 
 p = Problem("csv_files/ctstfr0280_input_1.csv")

@@ -18,4 +18,4 @@ if __name__ == "__main__":
             print("\t", s)
 
     print(p.compute_score())
-    print(p)
+    p.print_to_csv("file.csv")

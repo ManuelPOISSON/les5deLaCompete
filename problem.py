@@ -1,4 +1,5 @@
 from typing import List
+import csv
 
 from server import Server
 from service import Service
@@ -48,8 +49,13 @@ class Problem:
             ret += server.model + ","
             for service_name in server.services_running:
                 ret += service_name + ","
+            ret = ret[:-1]
             ret += "\n"
         return ret
+
+    def print_to_csv(self, filename):
+        with open(filename, "w") as f:
+            f.write(self.__str__())
 
 
 

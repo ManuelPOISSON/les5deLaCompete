@@ -18,9 +18,11 @@ class Problem:
                 self.services.append(Service(line[0], int(line[1]), int(line[2]), int(line[3])))
         self.servers_used = []
 
-
     def solve(self):
         pass
+
+    def sort_servers(self):
+        self.servers.sort(key=lambda serv: serv.co2prod + self.duree * serv.co2use)
 
     def compute_score(self):
         score = 0

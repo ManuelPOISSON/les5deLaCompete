@@ -21,4 +21,7 @@ class Server:
 
         return servers_list
 
+    def compute_cost(self, duree_usage):
+        return self.co2prod + duree_usage * self.co2use
+
 

@@ -21,15 +21,14 @@ class Problem:
         self.servers_used = []
         self.sort_servers()
         self.duplicate()
+        print("duplicates done")
 
 
-    def duplicate(self, dup = 100):
+    def duplicate(self, dup = 1800):
         self.servers = [copy.deepcopy(x) for item in self.servers for x in repeat(item, dup)]
 
     def solve(self):
-
         for service in self.services:
-
             for server in self.servers:
                 if server.add_service(service):
                     if server not in self.servers_used:

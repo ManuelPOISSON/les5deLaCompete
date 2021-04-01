@@ -1,6 +1,3 @@
-
-
-
 class Server:
     def __init__(self, model, co2prod, co2use, disk, ram, cores):
         self.model = model
@@ -24,6 +21,4 @@ class Server:
 
         return servers_list
 
-
-print(Server.create_servers("servers_catalog.csv"))
 

@@ -17,9 +17,16 @@ class Problem:
                 line = line.split(",")
                 self.services.append(Service(line[0], int(line[1]), int(line[2]), int(line[3])))
         self.servers_used = []
+        self.sort_servers()
 
     def solve(self):
-        pass
+        self.servers_used.append(self.servers[0])
+        used = self.servers
+
+        for service in self.services:
+            if
+
+
 
     def sort_servers(self):
         self.servers.sort(key=lambda serv: serv.co2prod + self.duree * serv.co2use)

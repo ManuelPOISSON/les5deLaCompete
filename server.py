@@ -1,3 +1,5 @@
+from service import Service
+
 class Server:
     def __init__(self, model, co2prod, co2use, disk, ram, cores):
         self.model = model
@@ -23,5 +25,17 @@ class Server:
 
     def compute_cost(self, duree_usage):
         return self.co2prod + duree_usage * self.co2use
+
+    def add_service(self, service: Service) -> bool:
+        """
+        :param service:
+        :return: false if service can't be added
+        """
+        if not self.ram >= service.ram and self.disk >= service.stockage and self.cores >= service.proc:
+            return false
+        else:
+            self.ram -= service.ram
+            self.disk -= service.stockage
+            self.cores -= service.proc
 
 

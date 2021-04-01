@@ -1,5 +1,6 @@
 from typing import List
-import csv
+import copy
+from itertools import repeat
 
 from server import Server
 from service import Service
@@ -19,16 +20,18 @@ class Problem:
                 self.services.append(Service(line[0], int(line[1]), int(line[2]), int(line[3])))
         self.servers_used = []
         self.sort_servers()
+        self.duplicate()
+
+
+    def duplicate(self, dup = 100):
+        self.servers = [copy.deepcopy(x) for item in self.servers for x in repeat(item, dup)]
 
     def solve(self):
 
         for service in self.services:
-            print(f"service {service.name}")
+
             for server in self.servers:
-                print(f"server {server.model}")
-                print(server.ram)
                 if server.add_service(service):
-                    print("after add", server.ram)
                     if server not in self.servers_used:
                         self.servers_used.append(server)
                     break
